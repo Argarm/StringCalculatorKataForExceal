@@ -21,9 +21,18 @@ namespace StringCalculatorKata.Test
             output.Should().Be(expected);
         }
         [Test]
-        public void return_sum_of_numbers_separated_by_commas() {
+        public void return_3_as_sum_of_1_and_2_separated_by_commas() {
             var numbers = "1,2";
             var expected = 3;
+            var  output = StringCalculator.Add(numbers);
+
+            output.Should().Be(expected);
+        }
+        
+        [Test]
+        public void return_4_as_sum_of_2_and_2_separated_by_commas() {
+            var numbers = "2,2";
+            var expected = 4;
             var  output = StringCalculator.Add(numbers);
 
             output.Should().Be(expected);
@@ -35,6 +44,7 @@ namespace StringCalculatorKata.Test
             if (string.IsNullOrEmpty(numbers))return 0;
             if(!numbers.Contains(","))return int.Parse(numbers);
             return 3;
+            
         }
     }
 }
