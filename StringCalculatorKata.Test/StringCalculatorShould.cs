@@ -20,28 +20,10 @@ namespace StringCalculatorKata.Test
 
             output.Should().Be(expected);
         }
-        [Test]
-        public void return_3_as_sum_of_1_and_2_separated_by_commas() {
-            var numbers = "1,2";
-            var expected = 3;
-            var  output = StringCalculator.Add(numbers);
-
-            output.Should().Be(expected);
-        }
-        
-        [Test]
-        public void return_4_as_sum_of_2_and_2_separated_by_commas() {
-            var numbers = "2,2";
-            var expected = 4;
-            var  output = StringCalculator.Add(numbers);
-
-            output.Should().Be(expected);
-        }
-        
-        [Test]
-        public void return_6_as_sum_of_3_and_3_separated_by_commas() {
-            var numbers = "3,3";
-            var expected = 6;
+        [TestCase("1,2",3)]
+        [TestCase("2,2",4)]
+        [TestCase("3,3",6)]
+        public void return_3_as_sum_of_1_and_2_separated_by_commas(string numbers, int expected) {
             var  output = StringCalculator.Add(numbers);
 
             output.Should().Be(expected);
