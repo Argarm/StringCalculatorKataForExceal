@@ -37,6 +37,15 @@ namespace StringCalculatorKata.Test
 
             output.Should().Be(expected);
         }
+        
+        [Test]
+        public void return_6_as_sum_of_3_and_3_separated_by_commas() {
+            var numbers = "3,3";
+            var expected = 6;
+            var  output = StringCalculator.Add(numbers);
+
+            output.Should().Be(expected);
+        }
     }
 
     public class StringCalculator {
