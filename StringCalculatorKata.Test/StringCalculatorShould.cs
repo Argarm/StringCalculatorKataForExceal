@@ -95,6 +95,8 @@ namespace StringCalculatorKata.Test
             var normalizedNumbers = Normalize(numbers);
             var splitedNumbers = Split(normalizedNumbers);
             var parsedNumbers = splitedNumbers.Select(int.Parse);
+            var negatives = parsedNumbers.Where(number => number < 0);
+            if (negatives.Any())throw new NegativeNotAllowedException(String.Join(" ", negatives));
             return parsedNumbers.Sum();
         }
 
