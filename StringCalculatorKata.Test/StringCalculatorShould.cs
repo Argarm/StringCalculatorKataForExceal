@@ -49,7 +49,8 @@ namespace StringCalculatorKata.Test
             if (string.IsNullOrEmpty(numbers))return 0;
             if(!numbers.Contains(Separator))return int.Parse(numbers);
             var splitedNumbers = numbers.Split(Separator);
-            return int.Parse(splitedNumbers[0]) + int.Parse(splitedNumbers[1]);
+            if (splitedNumbers.Length==2)return int.Parse(splitedNumbers[0]) + int.Parse(splitedNumbers[1]);
+            return int.Parse(splitedNumbers[0]) + int.Parse(splitedNumbers[1]) + int.Parse(splitedNumbers[2]);
         }
     }
 }
