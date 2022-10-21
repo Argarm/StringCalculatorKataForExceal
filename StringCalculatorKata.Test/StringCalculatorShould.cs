@@ -29,6 +29,16 @@ namespace StringCalculatorKata.Test
             output.Should().Be(expected);
         }
 
+        [Test]
+        public void sum_more_than_two_numbers_separated_by_commas() {
+            var numbers = "1,2,3";
+            var expected = 6;
+
+            var output = StringCalculator.Add(numbers);
+
+            output.Should().Be(expected);
+        }
+
 
     }
 
