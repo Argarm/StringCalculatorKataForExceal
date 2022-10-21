@@ -64,7 +64,7 @@ namespace StringCalculatorKata.Test
         public static int Add(string numbers) {
             if (string.IsNullOrEmpty(numbers))return 0;
             if(!numbers.Contains(Separator))return int.Parse(numbers);
-            var normalizedNumbers = numbers.Replace("\n", ",");
+            var normalizedNumbers = numbers.Trim().Replace("\n", ",");
             var splitedNumbers = normalizedNumbers.Split(Separator).ToList();
             return splitedNumbers.Sum(int.Parse);
         }
