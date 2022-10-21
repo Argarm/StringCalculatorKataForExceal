@@ -23,11 +23,13 @@ namespace StringCalculatorKata.Test
         [TestCase("1,2",3)]
         [TestCase("2,2",4)]
         [TestCase("3,3",6)]
-        public void return_3_as_sum_of_1_and_2_separated_by_commas(string numbers, int expected) {
+        public void return_sum_numbers_separated_by_commas(string numbers, int expected) {
             var  output = StringCalculator.Add(numbers);
 
             output.Should().Be(expected);
         }
+
+
     }
 
     public class StringCalculator {
