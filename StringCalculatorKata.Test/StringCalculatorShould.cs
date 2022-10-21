@@ -12,6 +12,13 @@ namespace StringCalculatorKata.Test
 
             output.Should().Be(0);
         }
+        
+        [TestCase("1",1)]
+        public void return_same_number_as_int(string numbers, int expected) {
+            var  output = StringCalculator.Add(numbers);
+
+            output.Should().Be(expected);
+        }
     }
 
     public class StringCalculator {
