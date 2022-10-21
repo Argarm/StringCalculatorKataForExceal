@@ -14,6 +14,7 @@ namespace StringCalculatorKata.Test
         }
         
         [TestCase("1",1)]
+        [TestCase("2",2)]
         public void return_same_number_as_int(string numbers, int expected) {
             var  output = StringCalculator.Add(numbers);
 
