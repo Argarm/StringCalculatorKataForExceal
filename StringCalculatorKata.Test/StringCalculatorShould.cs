@@ -60,7 +60,8 @@ namespace StringCalculatorKata.Test
             if(!numbers.Contains(Separator))return int.Parse(numbers);
             var splitedNumbers = numbers.Split(Separator);
             if (splitedNumbers.Length==2)return int.Parse(splitedNumbers[0]) + int.Parse(splitedNumbers[1]);
-            return int.Parse(splitedNumbers[0]) + int.Parse(splitedNumbers[1]) + int.Parse(splitedNumbers[2]);
+            if (splitedNumbers.Length == 3) return int.Parse(splitedNumbers[0]) + int.Parse(splitedNumbers[1]) + int.Parse(splitedNumbers[2]);
+            return int.Parse(splitedNumbers[0]) + int.Parse(splitedNumbers[1]) + int.Parse(splitedNumbers[2]) + int.Parse(splitedNumbers[3]);
         }
     }
 }
