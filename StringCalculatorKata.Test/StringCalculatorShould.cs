@@ -47,6 +47,15 @@ namespace StringCalculatorKata.Test
             output.Should().Be(6);
         }
 
+        [Test]
+        public void sum_numbers_with_new_line_at_the_start_and_commas_as_separators() {
+            var numbers = "\n1,2,3";
+
+            var output = StringCalculator.Add(numbers);
+
+            output.Should().Be(6);
+        }
+
     }
 
     public class StringCalculator {
