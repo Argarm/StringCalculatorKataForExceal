@@ -58,7 +58,7 @@ namespace StringCalculatorKata.Test
 
         [Test]
         public void support_different_separator() {
-            var numbers = "//;\n1,2,3";
+            var numbers = "//;\n1;2;3";
 
             var output = StringCalculator.Add(numbers);
 
@@ -72,6 +72,10 @@ namespace StringCalculatorKata.Test
 
         public static int Add(string numbers) {
             if (string.IsNullOrEmpty(numbers))return 0;
+            if (numbers.StartsWith("//")) {
+                Separator = numbers.Substring(2, 1);
+                numbers = numbers.Substring(3);
+            }
             if(!numbers.Contains(Separator))return int.Parse(numbers);
             var normalizedNumbers = numbers.Trim().Replace("\n", ",");
             var splitedNumbers = normalizedNumbers.Split(Separator).ToList();
