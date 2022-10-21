@@ -71,7 +71,8 @@ namespace StringCalculatorKata.Test
             var splitedNumbers = numbers.Split(Separator);
             if (splitedNumbers.Length==2)return int.Parse(splitedNumbers[0]) + int.Parse(splitedNumbers[1]);
             if (splitedNumbers.Length == 3) return int.Parse(splitedNumbers[0]) + int.Parse(splitedNumbers[1]) + int.Parse(splitedNumbers[2]);
-            return int.Parse(splitedNumbers[0]) + int.Parse(splitedNumbers[1]) + int.Parse(splitedNumbers[2]) + int.Parse(splitedNumbers[3]);
+            if(splitedNumbers.Length == 4) return int.Parse(splitedNumbers[0]) + int.Parse(splitedNumbers[1]) + int.Parse(splitedNumbers[2]) + int.Parse(splitedNumbers[3]);
+            return int.Parse(splitedNumbers[0]) + int.Parse(splitedNumbers[1]) + int.Parse(splitedNumbers[2]) + int.Parse(splitedNumbers[3]) + int.Parse(splitedNumbers[4]);
         }
     }
 }
