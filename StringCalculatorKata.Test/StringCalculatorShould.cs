@@ -66,7 +66,21 @@ namespace StringCalculatorKata.Test
             output.Should().Be(6);
         }
         
-        
+        [Test]
+        public void do_not_allow_a_negative_numbers() {
+            var numbers = "-1";
+
+            Action act = () => StringCalculator.Add(numbers);
+
+            act.Should().Throw<NegativeNotAllowedException>().WithMessage("Negatives not allowed -1");
+        }
+
+    }
+
+    public class NegativeNotAllowedException : Exception {
+        public NegativeNotAllowedException(string numbers) : base($"Negatives not allowed {numbers}") {
+
+        }
     }
 
     public class StringCalculator {
