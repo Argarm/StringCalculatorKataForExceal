@@ -33,10 +33,12 @@ namespace StringCalculatorKata.Test
     }
 
     public class StringCalculator {
+        private static string Separator = ",";
+
         public static int Add(string numbers) {
             if (string.IsNullOrEmpty(numbers))return 0;
-            if(!numbers.Contains(","))return int.Parse(numbers);
-            var splitedNumbers = numbers.Split(",");
+            if(!numbers.Contains(Separator))return int.Parse(numbers);
+            var splitedNumbers = numbers.Split(Separator);
             return int.Parse(splitedNumbers[0]) + int.Parse(splitedNumbers[1]);
         }
     }
