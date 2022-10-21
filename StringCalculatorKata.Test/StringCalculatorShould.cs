@@ -48,6 +48,16 @@ namespace StringCalculatorKata.Test
 
             output.Should().Be(expected);
         }
+        
+        [Test]
+        public void sum_five_numbers_separated_by_commas() {
+            var numbers = "1,2,3,4,5";
+            var expected = 15;
+
+            var output = StringCalculator.Add(numbers);
+
+            output.Should().Be(expected);
+        }
 
 
     }
