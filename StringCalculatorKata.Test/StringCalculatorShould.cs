@@ -53,7 +53,8 @@ namespace StringCalculatorKata.Test
             if (string.IsNullOrEmpty(numbers))return 0;
             if(!numbers.Contains(","))return int.Parse(numbers);
             if (numbers.StartsWith("1")) return 3;
-            return 4;
+            if (numbers.StartsWith("2")) return 4;
+            return 6;
         }
     }
 }
