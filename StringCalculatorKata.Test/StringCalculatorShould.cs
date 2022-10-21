@@ -1,4 +1,5 @@
 using FluentAssertions;
+using FluentAssertions.Specialized;
 using NUnit.Framework;
 
 namespace StringCalculatorKata.Test
@@ -64,7 +65,8 @@ namespace StringCalculatorKata.Test
 
             output.Should().Be(6);
         }
-
+        
+        
     }
 
     public class StringCalculator {
@@ -72,14 +74,30 @@ namespace StringCalculatorKata.Test
 
         public static int Add(string numbers) {
             if (string.IsNullOrEmpty(numbers))return 0;
-            if (numbers.StartsWith("//")) {
-                Separator = numbers.Substring(2, 1);
+            if (HasDifferentSeparator(numbers)) {
+                SetDifferentSeparator(numbers);
                 numbers = numbers.Substring(3);
             }
-            if(!numbers.Contains(Separator))return int.Parse(numbers);
-            var normalizedNumbers = numbers.Trim().Replace("\n", ",");
-            var splitedNumbers = normalizedNumbers.Split(Separator).ToList();
-            return splitedNumbers.Sum(int.Parse);
+            var normalizedNumbers = Normalize(numbers);
+            var splitedNumbers = Split(normalizedNumbers);
+            var parsedNumbers = splitedNumbers.Select(int.Parse);
+            return parsedNumbers.Sum();
+        }
+
+        private static string SetDifferentSeparator(string numbers) {
+            return Separator = numbers.Substring(2, 1);
+        }
+
+        private static bool HasDifferentSeparator(string numbers) {
+            return numbers.StartsWith("//");
+        }
+
+        private static List<string> Split(string normalizedNumbers) {
+            return normalizedNumbers.Split(Separator).ToList();
+        }
+
+        private static string Normalize(string numbers) {
+            return numbers.Trim().Replace("\n", ",");
         }
     }
 }
