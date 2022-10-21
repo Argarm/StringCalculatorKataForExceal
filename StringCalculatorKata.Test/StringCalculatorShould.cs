@@ -29,36 +29,14 @@ namespace StringCalculatorKata.Test
             output.Should().Be(expected);
         }
 
-        [Test]
-        public void sum_three_numbers_separated_by_commas() {
-            var numbers = "1,2,3";
-            var expected = 6;
-
+        [TestCase("1,2,3",6)]
+        [TestCase("1,2,3,4",10)]
+        [TestCase("1,2,3,4,5",15)]
+        public void sum_more_than_two_numbers_separated_by_commas(string numbers, int expected) {
             var output = StringCalculator.Add(numbers);
 
             output.Should().Be(expected);
         }
-        
-        [Test]
-        public void sum_four_numbers_separated_by_commas() {
-            var numbers = "1,2,3,4";
-            var expected = 10;
-
-            var output = StringCalculator.Add(numbers);
-
-            output.Should().Be(expected);
-        }
-        
-        [Test]
-        public void sum_five_numbers_separated_by_commas() {
-            var numbers = "1,2,3,4,5";
-            var expected = 15;
-
-            var output = StringCalculator.Add(numbers);
-
-            output.Should().Be(expected);
-        }
-
 
     }
 
