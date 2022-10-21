@@ -56,6 +56,15 @@ namespace StringCalculatorKata.Test
             output.Should().Be(6);
         }
 
+        [Test]
+        public void support_different_separator() {
+            var numbers = "//;\n1,2,3";
+
+            var output = StringCalculator.Add(numbers);
+
+            output.Should().Be(6);
+        }
+
     }
 
     public class StringCalculator {
