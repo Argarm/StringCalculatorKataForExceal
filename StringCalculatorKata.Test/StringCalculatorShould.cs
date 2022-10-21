@@ -38,6 +38,15 @@ namespace StringCalculatorKata.Test
             output.Should().Be(expected);
         }
 
+        [Test]
+        public void sum_numbers_with_new_line_and_commas_as_separators() {
+            var numbers = "1\n2,3";
+
+            var output = StringCalculator.Add(numbers);
+
+            output.Should().Be(6);
+        }
+
     }
 
     public class StringCalculator {
@@ -48,10 +57,6 @@ namespace StringCalculatorKata.Test
             if(!numbers.Contains(Separator))return int.Parse(numbers);
             var splitedNumbers = numbers.Split(Separator).ToList();
             return splitedNumbers.Sum(int.Parse);
-            /*if (splitedNumbers.Length==2)return int.Parse(splitedNumbers[0]) + int.Parse(splitedNumbers[1]);
-            if (splitedNumbers.Length == 3) return int.Parse(splitedNumbers[0]) + int.Parse(splitedNumbers[1]) + int.Parse(splitedNumbers[2]);
-            if(splitedNumbers.Length == 4) return int.Parse(splitedNumbers[0]) + int.Parse(splitedNumbers[1]) + int.Parse(splitedNumbers[2]) + int.Parse(splitedNumbers[3]);
-            return int.Parse(splitedNumbers[0]) + int.Parse(splitedNumbers[1]) + int.Parse(splitedNumbers[2]) + int.Parse(splitedNumbers[3]) + int.Parse(splitedNumbers[4]);*/
         }
     }
 }
